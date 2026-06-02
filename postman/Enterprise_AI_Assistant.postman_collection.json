@@ -1,0 +1,64 @@
+{
+  "info": {
+    "name": "Enterprise AI Data Assistant",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "NLP-to-SQL API collection"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/v1/health"
+      }
+    },
+    {
+      "name": "Schema Stats",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/v1/schema/stats"
+      }
+    },
+    {
+      "name": "Query - Unpaid invoices 5L+ last quarter",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"prompt\": \"Show unpaid invoices above 5 lakhs from last quarter\",\n  \"include_explanation\": true\n}"
+        },
+        "url": "{{base_url}}/api/v1/query"
+      }
+    },
+    {
+      "name": "Query - Top 10 vendors by payment delays",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"prompt\": \"Top 10 vendors by payment delays\"\n}"
+        },
+        "url": "{{base_url}}/api/v1/query"
+      }
+    },
+    {
+      "name": "Query - Highest outstanding customers",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"prompt\": \"Customers with highest outstanding balance this month\"\n}"
+        },
+        "url": "{{base_url}}/api/v1/query"
+      }
+    }
+  ],
+  "variable": [
+    {"key": "base_url", "value": "http://127.0.0.1:8000"}
+  ]
+}

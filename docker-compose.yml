@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - DATABASE_URL=sqlite+aiosqlite:///./data/enterprise.db
+      - VECTOR_DB_PATH=./data/chroma_db
+      - MOCK_LLM=${MOCK_LLM:-true}
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

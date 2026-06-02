@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.env
+.venv/
+venv/
+chroma_db/
+*.db
+*.sqlite
+.pytest_cache/
+.mypy_cache/
+.idea/
+.vscode/
+dist/
+build/
+*.egg-info/
